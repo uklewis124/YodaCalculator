@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Yoda Calculator - {{ person.name }}{% endblock %}
+{% block content %}
+    <div class="yoda" style="height: calc(100px * {{ person.yoda_height }})"></div>
+    {% if person %}
+        <p>{{ person.name }} is {{ person.yoda_height }} Yodas tall.</p>
+    {% else %}
+        <p>No person found.</p>
+    {% endif %}
+{% endblock %}

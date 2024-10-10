@@ -1,6 +1,11 @@
-{% extends base.html %}
-{% block title %}Yoda Calculator - {{ title }}{% endblock %}
+{% extends "base.html" %}
+{% block title %}Yoda Calculator - Index{% endblock %}
 {% block content %}
-    <h1>{{ title }}</h1>
-    <p>Yoda says: {{ message }}</p>
+    {% if people %}
+        {% for person in people %}
+            <p>{{ person.name }} is {{ person.yoda_height }} Yodas tall.</p>
+        {% endfor %}
+    {% else %}
+        <p>No people found.</p>
+    {% endif %}
 {% endblock %}

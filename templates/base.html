@@ -4,6 +4,11 @@
         <meta charset="UTF-8">
         <title>{% block title %}Yoda Calculator - {{ title }}{% endblock %}</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <style>
+            .yoda {
+                background-image: url("{{ url_for('static', filename='images/yoda.png') }}");
+            }
+        </style>
     </head>
 
     <body>

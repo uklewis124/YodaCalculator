@@ -1,0 +1,5 @@
+.yoda {
+    background-image: url("{{ url_for('static', filename='images/yoda.png') }}");
+    width: 100px;
+    background-repeat: repeat-y;
+}
