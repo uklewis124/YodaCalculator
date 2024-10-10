@@ -17,9 +17,17 @@ people = yoda.setup_people()
 def page_not_found(e):
     return "Whooopsiezzzz, I did a whoopsies, or this page hasn't been birthed yet.", 404
 
-@app.route('/')
+@app.route('/', methods=["GET", "POST"])
 def index():
-    return render_template('index.html', people=people)
+    if request.method == "POST":
+        name_to_search = request.form.get("name")
+        results = []
+        for person in people:
+            if name_to_search.lower() in person["name"].lower():
+                results.append(person)
+        return render_template('index.html', people=results)
+    else:
+        return render_template('index.html', people=people)
 
 @app.route('/person/<int:person_id>')
 def person(person_id):

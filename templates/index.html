@@ -1,11 +1,12 @@
 {% extends "base.html" %}
 {% block title %}Yoda Calculator - Index{% endblock %}
 {% block content %}
-    {% if people %}
-        {% for person in people %}
-            <p>{{ person.name }} is {{ person.yoda_height }} Yodas tall.</p>
-        {% endfor %}
-    {% else %}
-        <p>No people found.</p>
-    {% endif %}
+    <form action="{{ url_for('index') }}" method="post">
+        <label for="name">Search for a person:</label>
+        <input type="text" id="name" name="name">
+        <button type="submit">Search</button>
+    </form>
+    {% for person in people %}
+        <a href="{{ url_for('person', person_id=loop.index0) }}">{{ person.name }}</a>
+    {% endfor %}
 {% endblock %}
